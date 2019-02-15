@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "declaration": true
+  },
+  "files": [
+    "hello.ts"
+  ]
+}
