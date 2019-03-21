@@ -1,0 +1,17 @@
+{
+  "name": "typescript-webpack-importing-rollup-mjs-es-modules-demo--module2",
+  "version": "0.1.1",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.mjs",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "rollup": "1.7.0",
+    "rollup-plugin-typescript2": "0.20.1",
+    "typescript-webpack-importing-rollup-mjs-es-modules-demo--module1": "0.1.2"
+  },
+  "peerDependencies": {
+    "typescript-webpack-importing-rollup-mjs-es-modules-demo--module1": "0.1.2"
+  }
+}
