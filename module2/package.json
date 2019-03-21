@@ -1,8 +1,9 @@
 {
-  "name": "typescript-webpack-importing-rollup-mjs-es-modules-demo--module2",
+  "name": "typescript-webpack-specify-main-fields-for-individual-modules-demo--module2",
   "version": "0.1.1",
-  "main": "dist/bundle.js",
-  "module": "dist/bundle.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c"
   },

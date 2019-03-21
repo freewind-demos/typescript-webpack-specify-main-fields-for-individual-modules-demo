@@ -1,39 +1,9 @@
-TypeScript Webpack Importing Rollup "cjs" "mjs" Demo
-=====================================================
+TypeScript Webpack Specify "mainFields" for Individual Modules Demo
+==================================================================
 
-如果两个module同时发布了两种格式的bundle文件:
+webpack在打包modules的时候，如果希望使用module1的`main`字段指定的bundle文件，
+同时使用module2的`module`字段指定的文件，怎么办？
 
-```
-output: [{
-  file: pkg.main,
-  format: 'cjs'
-}, {
-  file: pkg.module,
-  format: 'esm'
-}]
-```
+当前做不到：<https://github.com/webpack/webpack/issues/5756>
 
-并且其中一个引用了另一个：
-
-```
-import {module1} from 'typescript-webpack-importing-rollup-mjs-es-modules-demo--module1';
-```
-
-那么当一个项目同时使用这两个module的时候，希望使用它们的cjs版本的bundle，会不会有问题？
-
-答案是没问题：
-
-1. 在该项目中webpack.config.js的`mainFields`中指定使用`main`字段指向的bundle文件
-
-   这样做可以简单的解决问题，但是有一个顾虑，就是它将会同时指定所有引用的模块优先使用的字段。有没有办法单独指定？
-
-2. 在该项目中引用这两个module时，指定使用js文件：`import {module1} from 'typescript-webpack-importing-rollup-mjs-es-modules-demo--module1/dist/bundle.js';`
-   
-   不过这种办法有一个问题，就是在typescript中这么做会报错，因为直接引用某个js文件时，会找不到对应的typing，所以要么只能加上`// @ts-ignore`（不好），或者使用前一种办法。
-
-运行：
-   
-```
-npm install
-npm run demo
-```
+因为`mainFields`一旦设定，则对所有的module一起生效。
